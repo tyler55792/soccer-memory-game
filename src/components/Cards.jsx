@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import Card from './Card'
+import LossPage from './LossPage';
+import WinPage from './WinPage';
 
 // TODO
 // if reach 8 then say game over.. could add more players at this point
@@ -21,10 +23,11 @@ function Cards() {
 
     const [selectedNames, setSelectedNames] = useState([]);
     const [topScore, setTopScore] = useState('0');
+    const [gameCondition, setGameCondition] = useState('loss')
 
     useEffect(() => {
         setCards(shuffle(cards));
-    }, [selectedNames]);
+    }, [selectedNames, gameCondition]);
 
     const shuffle = (cards) => {
         for (let i = cards.length -1; i > 0; i--) {
@@ -52,17 +55,21 @@ function Cards() {
     }
 
     const handleWin = () => {
-        alert('You Win!')
+        setGameCondition('win')
         setTopScore(cards.length);
         setSelectedNames('');
     }
 
     const handleLoss = () => {
-        alert('You Lost!')
+        setGameCondition('loss')
         setSelectedNames('')
         if (selectedNames.length > topScore) {
             setTopScore(selectedNames.length);
         }
+    }
+
+    const restartClick = () => {
+        setGameCondition('playing');
     }
 
     return (
@@ -74,6 +81,13 @@ function Cards() {
                 <div className='topScore'>
                     Best Score: {topScore}
                 </div>
+            </div>
+            <div>
+                {gameCondition === 'loss' ? (
+                    <LossPage handleClick={restartClick}/>
+                ) : gameCondition === 'win' ? (
+                    <WinPage handleClick={restartClick}/>
+                ) : ("")}
             </div>
             <div className='cards'>
                 {cards.map((card) => {
