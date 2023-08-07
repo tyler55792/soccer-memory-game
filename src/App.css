@@ -15,6 +15,7 @@
   align-items: center;
 }
 
+.arrow,
 .currentScore,
 .topScore {
   display: inline-block;
@@ -25,6 +26,11 @@
   margin: 15px;
   margin-bottom: 7vh;
   margin-top: 5vh
+}
+
+.arrow img {
+  object-fit: contain;
+  height: 16px;
 }
 
 .cards {

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import Card from './Card'
 import LossPage from './LossPage';
 import WinPage from './WinPage';
@@ -70,6 +71,9 @@ function Cards() {
     return (
         <div className='body'>
             <div className='scores'>
+                <Link to="/"className="arrow">
+                    <img src="/public/images/arrow.png"/>
+                </Link>
                 <div className='currentScore'>
                     Current Score: {selectedNames.length}
                 </div>
