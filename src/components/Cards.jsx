@@ -3,12 +3,6 @@ import Card from './Card'
 import LossPage from './LossPage';
 import WinPage from './WinPage';
 
-// TODO
-// if reach 8 then say game over.. could add more players at this point
-// add start page w/ difficuilty
-// add win and loss animation
-
-
 function Cards() {
     const [cards, setCards] = useState([
         {key:'1', img:'./../../public/images/neymar.jpg', playerName:'Neymar', status:''},
@@ -23,7 +17,7 @@ function Cards() {
 
     const [selectedNames, setSelectedNames] = useState([]);
     const [topScore, setTopScore] = useState('0');
-    const [gameCondition, setGameCondition] = useState('loss')
+    const [gameCondition, setGameCondition] = useState('playing')
 
     useEffect(() => {
         setCards(shuffle(cards));
@@ -42,7 +36,7 @@ function Cards() {
             handleLoss()
         } else {
             if (selectedNames.length >= (cards.length - 1)) {
-                handleWin()
+                handleWin(playerName)
             } else {
                 handleNextRound(playerName)
             }
@@ -54,15 +48,15 @@ function Cards() {
         setSelectedNames(newSelected);
     }
 
-    const handleWin = () => {
+    const handleWin = (playerName) => {
         setGameCondition('win')
+        let newSelected = [...selectedNames, playerName];
+        setSelectedNames(newSelected);
         setTopScore(cards.length);
-        setSelectedNames('');
     }
 
     const handleLoss = () => {
         setGameCondition('loss')
-        setSelectedNames('')
         if (selectedNames.length > topScore) {
             setTopScore(selectedNames.length);
         }
@@ -70,6 +64,7 @@ function Cards() {
 
     const restartClick = () => {
         setGameCondition('playing');
+        setSelectedNames('')
     }
 
     return (
@@ -87,17 +82,18 @@ function Cards() {
                     <LossPage handleClick={restartClick}/>
                 ) : gameCondition === 'win' ? (
                     <WinPage handleClick={restartClick}/>
-                ) : ("")}
-            </div>
-            <div className='cards'>
-                {cards.map((card) => {
-                    return <Card 
-                        key={card.key} 
-                        img={card.img} 
-                        playerName={card.playerName} 
-                        handleClick={handleClick}
-                        />
-                })}
+                ) : (
+                    <div className='cards'>
+                        {cards.map((card) => {
+                            return <Card 
+                                key={card.key} 
+                                img={card.img} 
+                                playerName={card.playerName} 
+                                handleClick={handleClick}
+                                />
+                        })}
+                    </div>
+                )}
             </div>
         </div>
     )
