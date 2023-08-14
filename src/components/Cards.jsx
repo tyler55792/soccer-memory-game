@@ -6,14 +6,14 @@ import WinPage from './WinPage';
 
 function Cards() {
     const [cards, setCards] = useState([
-        {key:'1', img:'./../../public/images/neymar.jpg', playerName:'Neymar', status:''},
-        {key:'2', img:'./../../public/images/mbappe.jpg', playerName:'Mbappe', stats:''},
-        {key:'3', img:'./../../public/images/messi.jpg', playerName:'Messi', status:''},
-        {key:'4', img:'./../../public/images/ronaldo.jpg', playerName:'Ronaldo', status:''},
-        {key:'5', img:'./../../public/images/salah.jpg', playerName:'Salah', status:''},
-        {key:'6', img:'./../../public/images/deBruyne.jpg', playerName:'De Bruyne', status:''},
-        {key:'7', img:'./../../public/images/haaland.jpg', playerName:'Haaland', status:''},
-        {key:'8', img:'./../../public/images/pulisic.jpg', playerName:'Pulisic', status:''}
+        {key:'1', img:'/images/neymar.jpg', playerName:'Neymar', status:''},
+        {key:'2', img:'/images/mbappe.jpg', playerName:'Mbappe', stats:''},
+        {key:'3', img:'/images/messi.jpg', playerName:'Messi', status:''},
+        {key:'4', img:'/images/ronaldo.jpg', playerName:'Ronaldo', status:''},
+        {key:'5', img:'/images/salah.jpg', playerName:'Salah', status:''},
+        {key:'6', img:'/images/deBruyne.jpg', playerName:'De Bruyne', status:''},
+        {key:'7', img:'/images/haaland.jpg', playerName:'Haaland', status:''},
+        {key:'8', img:'/images/pulisic.jpg', playerName:'Pulisic', status:''}
     ]);
 
     const [selectedNames, setSelectedNames] = useState([]);
