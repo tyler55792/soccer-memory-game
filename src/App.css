@@ -20,7 +20,7 @@
 .topScore {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #3498db; 
+  background-color: #000000; 
   color: #fff; 
   border-radius: 20px;
   margin: 15px;
@@ -34,11 +34,11 @@
 }
 
 .arrow {
-  transition: background-color 0.3s;
+  transition: box-shadow 0.3s;
 }
 
 .arrow:hover {
-  background-color: black;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 }
 
 .cards {
@@ -111,7 +111,6 @@
 
 .startLink:hover {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-  color:#3498db;
 }
 
 .logo {
@@ -138,7 +137,7 @@
 }
 
 .restart {
-  background-color: #3498db;
+  background-color: #000000;
   color: #fff;
   padding: 10px 20px;
   cursor: pointer;
@@ -147,5 +146,5 @@
 }
 
 .restart:hover {
-  background-color: #2980b9;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 }
