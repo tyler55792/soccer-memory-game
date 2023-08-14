@@ -72,7 +72,7 @@ function Cards() {
         <div className='body'>
             <div className='scores'>
                 <Link to="/"className="arrow">
-                    <img src="/public/images/arrow.png"/>
+                    <img src="/images/arrow.png"/>
                 </Link>
                 <div className='currentScore'>
                     Current Score: {selectedNames.length}
