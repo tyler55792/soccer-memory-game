@@ -7,7 +7,7 @@ const StartPage = () => {
                 <img className="logo" src="/images/logo.png"/>
             </div>
             <div className="startContainer">
-                <p>Memory Card Game: Remeber and avoid selecting the same card in consecutive rounds</p>
+                <p>Memory Card Game: Remember and avoid selecting the same card in consecutive rounds</p>
             </div>
             <Link className="startLink" to="app">Start Game</Link>
         </div>
